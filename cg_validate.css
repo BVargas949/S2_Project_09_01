@@ -11,7 +11,7 @@
 
 */
 
-
+/* The attributes of focus, valid, and invalid make the input boxes change in appearance depending if the information in the input box is acceptable. The color and images have been added to appear different if the information is acceptable or not. */
 /* Validation Styles */
 input:focus,
 select:focus,
