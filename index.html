@@ -54,10 +54,55 @@
     <section>
         <h1>Conference Registration Form</h1>
         <p>Required Item (*)</p>
+
+        <!-- Below this comment is a form element with other elements nested within it to create user interactive text boxes. -->
+
         <form id="webForm" action="http://www.example.com/cg/register" method="POST">
-            <div>
-                <label for="title"></label>
-            </div>
+            <!-- Below is a label and an imput element, they are associated together by having the same value in the "for" and "id" attributes. The label is used  to describe what should fill the input, the input element creates a text box for the user to type in. -->
+            <label for="title">Title</label>
+            <input list="titlelist" name="title" type="text" id="titleBox" />
+            <!-- The datalist is assicated with the input by having the same value in the "list" and "id" attributes. The datalist tag creates a list of options within the input box. The option element creates those predifined options. -->
+            <datalist id="titlelist">
+                <option value="Mr">Mr.</option>
+                <option value="Mrs">Mrs.</option>
+                <option value="Ms">Ms.</option>
+                <option value="Prof" selected>Prof.</option>
+                <option value="Dr">Dr.</option>
+                <option value="Assis">Assis.Prof.</option>
+                <option value="Assoc">Assoc.Prof.</option>
+            </datalist>
+            <!-- The same label and input association is used with the "last name", "first name", and "address" inputs with the exception of having a "required" attribute. This attribute makes the user place the neccesary information based on the specifications that the server has. -->
+            <label for="fnBox">First Name*</label>
+            <input name="firstName" id="fnBox" type="text" required>
+            <label for="lnBox">Last Name*</label>
+            <input name="lastName" id="lnBox" type="text" required>
+            <label for="addBox">Address</label>
+            <!-- Instead of an input element we have a textarea tag. This tag creates a large text box depending on the specified rows and columns. -->
+            <textarea name="address" id="addbox" cols="30" rows="10"></textarea>
+            <label for="groupBox">Company or University</label>
+            <input type="text" name="group" id="groupBox" required>
+            <label for="mailBox">Email*</label>
+            <!-- the Type "email" creates a specific character that the sserver searches for in order to allow the user to move on. -->
+            <input type="email" name="email" id="mailBox" required>
+            <label for="phoneBox">Phone Number*</label>
+            <!-- The attribute "pattern" creates a specific pattern for the user to follow in order to get the right information. -->
+            <input type="tel" name="phoneNumber" id="phoneBox" placeholder="(nnn) nnn-nnnn" pattern="^\d{10}$|^(\(\d{3}\)\s*)?\d{3}[\s-]?\d{4}$"
+                required>
+            <!-- the label and input association still exist,but this time with the attribute of "placeholder" where one can right hints for the user to follow. The hint will be slightly opaque and will desapear once the user types his/her first character. -->
+            <label for="idBox">ACGIP Membership Number</label>
+            <input type="text" name="acgipID" id="idBox" placeholder="acgip-nnnnnn" pattern="^acgip\-\d{6}$">
+            <!-- The label is used once again, but with a select element as its interactive box. The select element has many option elements nested within it. These option elemenrts create a dropdown option for the user to choose one of the options. -->
+            <label for="reglist">Registration Category</label>
+            <select name="register" id="reglist">
+                <option value="Member">ACGIP Member ($695)</option>
+                <option value="Non-Member">Non-Member ($795)</option>
+                <option value="Student">Student ($310)</option>
+                <option value="Poster">Poster ($95)</option>
+                <option value="Guest">Guest ($35)</option>
+            </select>
+            <p id="buttons">
+                <input type="submit" value="continue">
+            </p>
         </form>
     </section>
 
